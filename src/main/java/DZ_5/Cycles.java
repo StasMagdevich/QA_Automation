@@ -46,14 +46,25 @@ public class Cycles {
             factorial *= i;
         }
         System.out.println("result = " + factorial);
-        scanner.close();
 
 //        Задача 4.
 //        Для введённого пользователем с клавиатуры натурального числа посчитайте сумму всех его цифр
 //        (заранее не известно сколько цифр будет в числе).
 
-        //тут что-то все служно. немогу понять как сделать если число будет более чем двузначное
+        Scanner scan = new Scanner(System.in);
+        System.out.println("введи натуральное число: ");
+        int number = scan.nextInt();
+        int result = 0;
+        while (number != 0) {
 
+            int digit = number % 10;
+            result += digit;
+            number /= 10;
+        }
+        System.out.println("сумму всех его цифр = " + result);
+
+        scanner.close();
+        scan.close();
 
     }//main
 }
