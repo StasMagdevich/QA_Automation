@@ -54,9 +54,13 @@ public class Arrays {
         int[] array3 = new int[5];
         int[] array4 = new int[5];
         Random random = new Random();
+        int sum1 = 0;
+        int sum2 = 0;
         for (int i = 0; i < 5; i++) {
             array3[i] = random.nextInt(5);
+            sum1 += array3[i];
             array4[i] = random.nextInt(5);
+            sum2 += array4[i];
             System.out.print(array3[i] + " ");
         }
         System.out.println();
@@ -67,14 +71,6 @@ public class Arrays {
         double average1;
         double average2;
 
-        int sum1 = 0;
-        int sum2 = 0;
-        for (int i = 0; i < array3.length; i++) {
-            sum1 += array3[i];
-        }
-        for (int i = 0; i < array4.length; i++) {
-            sum2 += array4[i];
-        }
         System.out.println();
         average1 = sum1 / array3.length;
         average2 = sum2 / array4.length;
