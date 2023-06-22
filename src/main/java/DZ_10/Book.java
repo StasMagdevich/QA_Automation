@@ -1,11 +1,11 @@
 package DZ_10;
 
-public class Client extends Product {
+public class Book extends Product {
+    String author;
 
-    String firstName;
-    String lastName;
-    long INN;
-    String passportNumber;
-    long accountNumber;
+    public Book(String name, String author, double price) {
+        super(name, price);
+        this.author = author;
 
+    }
 }

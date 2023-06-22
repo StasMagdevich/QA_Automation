@@ -1,9 +1,10 @@
 package DZ_10;
 
-public class Bank extends Product {
+class Electronics extends Product {
+    String type;
 
-    String bankName;
-    String[] clients;
-    int[] account;
-
+    public Electronics(String type, String name, double price) {
+        super(name, price);
+        this.type = type;
+    }
 }

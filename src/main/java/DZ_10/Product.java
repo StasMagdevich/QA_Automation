@@ -1,9 +1,11 @@
 package DZ_10;
 
-public abstract class CreditCard {
+public abstract class Product {
+    String name;
+    double price;
 
-    String cardName;
-    long cardNumber;
-    double balance;
-
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
 }
