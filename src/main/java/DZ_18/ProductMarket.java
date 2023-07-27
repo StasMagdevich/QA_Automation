@@ -1,7 +1,5 @@
 package DZ_18;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,7 +28,7 @@ public class ProductMarket {
     //Вернуть все цены больше 10
     public List<Double> getAllProductByHigherPrice() {
         return productList.stream().
-                filter(product -> product.getPrice()>10).
+                filter(product -> product.getPrice() > 10).
                 map(Product::getPrice)
                 .collect(Collectors.toList());
     }
@@ -38,7 +36,7 @@ public class ProductMarket {
     // Вернуть все цены меньше 0
     public List<Double> getAllProductByLowerPrice() {
         return productList.stream().
-                filter(productList->productList.getPrice()<0).
+                filter(productList -> productList.getPrice() < 0).
                 map(Product::getPrice).
                 sorted().
                 collect(Collectors.toList());
