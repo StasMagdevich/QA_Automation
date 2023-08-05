@@ -1,6 +1,8 @@
 package DZ_9;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Methods {
 
@@ -108,21 +110,36 @@ public class Methods {
 //    Если таких слов несколько, найти первое из них.
 //            Например, в строке "fffff ab f 1234 jkjk" найденное слово должно быть "fffff".
 
-//    public static void findWordWithMinLetters(){
-//        System.out.println("введите строку");
-//        Scanner scanner = new Scanner(System.in);
-//        String str = scanner.nextLine();
-//        String [] arr = new String[str.length()];
-//        //arr = str.toCharArray();
-//        for (int i=0;i<=arr.length;i++){
-//            arr[i]=str.toCharArray();
-//            System.out.println(arr[i]);
-////arr[i].split(" ");
-//           // System.out.println(arr[i]);
-//        }
-//        scanner.close();
-//    }
+    public static String findWordWithMinLetters() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите строку:");
+        String input = scanner.nextLine();
+        if (input == null || input.isEmpty()) {
+            return "";
+        }
 
+        String[] words = input.split("\\s+");
+        String minWord = null;
+        int minLetters = Integer.MAX_VALUE;
+
+        for (String word : words) {
+            int uniqueChars = countUniqueCharacters(word);
+            if (uniqueChars < minLetters) {
+                minLetters = uniqueChars;
+                minWord = word;
+            }
+        }
+
+        return minWord;
+    }
+
+    private static int countUniqueCharacters(String word) {
+        Set<Character> charSet = new HashSet<>();
+        for (char c : word.toCharArray()) {
+            charSet.add(c);
+        }
+        return charSet.size();
+    }
 
     public static void main(String[] args) {
         String str = "I like Java!!!";
@@ -139,7 +156,8 @@ public class Methods {
         printStudent("Иванов", 5, "Математике");
         printStudent("Петрова", 4, "Физике");
         printStudent("Сидорова", 3, "Программированию");
-        //findWordWithMinLetters();
+        String result = findWordWithMinLetters();
+        System.out.println("Слово с минимальным числом символов: " + result);
     }
 
 }
