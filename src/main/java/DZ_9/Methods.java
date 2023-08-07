@@ -1,6 +1,7 @@
 package DZ_9;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -134,13 +135,18 @@ public class Methods {
     }
 
     private static int countUniqueCharacters(String word) {
-        Set<Character> charSet = new HashSet<>();
+        int[] charCount = new int[150];
         for (char c : word.toCharArray()) {
-            charSet.add(c);
+            charCount[c]++;
         }
-        return charSet.size();
+        int uniqueChars = 0;
+        for (int count : charCount) {
+            if (count > 0) {
+                uniqueChars++;
+            }
+        }
+        return uniqueChars;
     }
-
     public static void main(String[] args) {
         String str = "I like Java!!!";
         inputString(str);
