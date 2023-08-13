@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="testing">
+    <test name="testAdditionWithParameters">
+        <parameter name="a" value="5"/>
+        <parameter name="b" value="3"/>
+        <parameter name="expectedResult" value="8"/>
+        <classes>
+            <class name="DZ_20.CalculatorTest">
+                <methods>
+                    <include name="testAdditionWithParameters"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
