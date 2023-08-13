@@ -33,14 +33,6 @@ public class CalculatorTest {
         Assert.assertEquals(result, expectedResult);
     }
 
-//    @DataProvider(name = "additionData")
-//    public Object[][] additionData() {
-//        return new Object[][]{
-//                {16, 2, 18},
-//                {15, 3, 18}
-//        };
-//    }
-
     @Test(dataProvider = "divisionData")
     public void testDivision(int a, int b, int expectedResult) {
         int result = calculator.division(a, b);
