@@ -13,7 +13,7 @@ public class LoginPageTest {
     private static WebDriver driver;
 
     @BeforeEach
-    public void init() throws InterruptedException {
+    public void init() {
         driver = WebDriverFactory.getByName(BrowserName.CHROME);
         loginFlow = new LoginFlow(driver);
         driver.manage().window().maximize();
