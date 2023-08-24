@@ -2,6 +2,7 @@ package DZ_22.flows;
 
 import DZ_22.LoginPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class LoginFlow {
     private LoginPage loginPage;
@@ -27,11 +28,23 @@ public class LoginFlow {
         loginPage.getREGISTER_BUTTON().click();
     }
 
-    public void findLogOutButton() {
-        loginPage.getLOGOUT_BUTTON().click();
+    public WebElement findLogOutButton() {
+        return loginPage.getLOGOUT_BUTTON();
     }
 
     public void findForgotPasswordButton() {
         loginPage.getForgotPasswordButton().click();
+    }
+
+    public WebElement findSuccessfulLogin() {
+        return loginPage.getSuccessfulLogin();
+    }
+
+    public WebElement findInvalidCredentials() {
+        return loginPage.getInvalidCredentials();
+    }
+
+    public WebElement findPasswordRecoveryLink() {
+        return loginPage.getPasswordRecoveryLink();
     }
 }

@@ -4,7 +4,6 @@ import DZ_22.factory.BrowserName;
 import DZ_22.factory.WebDriverFactory;
 import DZ_22.flows.LoginFlow;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -35,8 +34,7 @@ public class LoginPageTest {
         loginFlow.fillPasword("qwerty123");
         loginFlow.submit();
         Thread.sleep(10000);
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div/h3[1]"));
-        String actualText = element.getText();
+        String actualText = loginFlow.findSuccessfulLogin().getText();
         String expectedText = "MY ACCOUNT";
         Assertions.assertEquals(expectedText, actualText);
     }
@@ -49,8 +47,7 @@ public class LoginPageTest {
         loginFlow.fillPasword("qwerty123");
         loginFlow.submit();
         Thread.sleep(10000);
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div[1]/div/span[2]"));
-        String actualText = element.getText();
+        String actualText = loginFlow.findInvalidCredentials().getText();
         String expectedText = "Email or password not correct.";
         Assertions.assertEquals(expectedText, actualText);
     }
@@ -63,8 +60,7 @@ public class LoginPageTest {
         loginFlow.fillPasword("qwerty");
         loginFlow.submit();
         Thread.sleep(10000);
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div[1]/div/span[2]"));
-        String actualText = element.getText();
+        String actualText = loginFlow.findInvalidCredentials().getText();
         String expectedText = "Email or password not correct.";
         Assertions.assertEquals(expectedText, actualText);
     }
@@ -77,8 +73,8 @@ public class LoginPageTest {
         loginFlow.fillPasword("qwerty123");
         loginFlow.submit();
         Thread.sleep(10000);
-        loginFlow.findLogOutButton();
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[1]/nav/div[3]/div[1]/span/div/nav/span"));
+        loginFlow.findLogInButton();
+        WebElement element = loginFlow.findLogOutButton();
         element.click();
         Assertions.assertTrue(true);
     }
@@ -89,8 +85,7 @@ public class LoginPageTest {
         Thread.sleep(12000);
         loginFlow.findForgotPasswordButton();
         Thread.sleep(10000);
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div/div/div[1]/div/h2"));
-        String actualText = element.getText();
+        String actualText = loginFlow.findPasswordRecoveryLink().getText();
         String expectedText = "FORGOT PASSWORD?";
         Assertions.assertEquals(expectedText, actualText);
     }
